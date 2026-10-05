@@ -91,8 +91,8 @@ export function AddMemoryModal({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="rounded-xl border border-[#E5E3DC] bg-[#FFFFFF] text-[#1F1E1D] sm:max-w-md p-6 shadow-lg">
         <DialogHeader>
-          <DialogTitle className="tracking-tight text-lg font-bold text-[#1F1E1D] flex items-center gap-2">
-            <span className="text-[#D96B27]">✦</span>
+          <DialogTitle className="font-serif text-xl font-normal text-[#1F1E1D] flex items-center gap-2">
+            <span className="text-[#D96B27] font-serif">✦</span>
             <span>{editing ? "Review / Edit Memory" : "Add Memory"}</span>
           </DialogTitle>
         </DialogHeader>

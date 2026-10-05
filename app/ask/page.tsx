@@ -17,11 +17,25 @@ function AskContent() {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState("");
   const [thinking, setThinking] = useState(false);
+  const [thinkingSeconds, setThinkingSeconds] = useState(0);
   const [expandedContextIndex, setExpandedContextIndex] = useState<number | null>(null);
   const [expandedReasoningIndex, setExpandedReasoningIndex] = useState<number | null>(null);
   const taRef = useRef<HTMLTextAreaElement>(null);
   const endRef = useRef<HTMLDivElement>(null);
   const initialSent = useRef(false);
+
+  useEffect(() => {
+    let interval: any;
+    if (thinking) {
+      setThinkingSeconds(0);
+      interval = setInterval(() => {
+        setThinkingSeconds((s) => s + 1);
+      }, 1000);
+    } else {
+      setThinkingSeconds(0);
+    }
+    return () => clearInterval(interval);
+  }, [thinking]);
 
   const sendMessage = async (text: string) => {
     const q = text.trim();
@@ -98,15 +112,15 @@ function AskContent() {
         {/* Header */}
         <div className="flex flex-wrap items-start justify-between gap-3 border-b border-[#E5E3DC] pb-4">
           <div>
-            <h1 className="text-2xl font-bold tracking-tight text-[#1F1E1D] flex items-center gap-2">
-              <span className="text-[#D96B27]">✦</span> Ask Saarthi
+            <h1 className="font-serif text-3xl sm:text-4xl font-normal tracking-tight text-[#1F1E1D] flex items-center gap-2">
+              <span className="text-[#D96B27] font-serif">✦</span> Ask Saarthi
             </h1>
             <p className="mt-1 text-xs text-[#706E68]">
               Your personal context is loaded into local Gemma 3 reasoning.
             </p>
           </div>
 
-          <div className="flex items-center gap-2 rounded-md border border-[#E5E3DC] bg-[#FFFFFF] px-2.5 py-1 font-mono text-xs text-[#706E68] shadow-sm">
+          <div className="flex items-center gap-2 rounded-md border border-[#E5E3DC] bg-[#FFFFFF] px-2.5 py-1 font-mono text-[11px] text-[#706E68] tracking-wider uppercase shadow-sm">
             <span className="size-2 rounded-full bg-emerald-600" />
             <span>Gemma 3 · Local</span>
           </div>
@@ -115,13 +129,13 @@ function AskContent() {
         {/* Empty Chat State */}
         {messages.length === 0 && !thinking ? (
           <div className="py-14 text-center animate-rise">
-            <span className="text-3xl text-[#D96B27] font-bold block mb-3">✦</span>
+            <span className="text-3xl text-[#D96B27] font-serif block mb-3">✦</span>
 
-            <h2 className="text-xl font-bold tracking-tight text-[#1F1E1D]">
+            <h2 className="font-serif text-2xl sm:text-3xl font-normal tracking-tight text-[#1F1E1D]">
               Ask Saarthi
             </h2>
-            <p className="mx-auto mt-1 max-w-sm text-xs text-[#706E68]">
-              What do you want to figure out today?
+            <p className="mx-auto mt-2 max-w-sm text-sm text-[#706E68]">
+              What would you like to figure out today?
             </p>
 
             <div className="mx-auto mt-8 flex max-w-md flex-col gap-2">
@@ -134,9 +148,9 @@ function AskContent() {
                 <button
                   key={p}
                   onClick={() => sendMessage(p)}
-                  className="rounded-lg border border-[#E5E3DC] bg-[#FFFFFF] px-4 py-3 text-left text-xs sm:text-sm font-medium text-[#1F1E1D] hover:border-[#D1CEBE] hover:bg-[#F8F7F4] transition-colors flex items-center justify-between group shadow-sm"
+                  className="rounded-lg border border-[#E5E3DC] bg-[#FFFFFF] px-4 py-3 text-left text-sm font-medium text-[#1F1E1D] hover:border-[#D1CEBE] hover:bg-[#F8F7F4] transition-colors flex items-center justify-between group shadow-sm"
                 >
-                  <span>{p}</span>
+                  <span className="font-serif text-[15px]">{p}</span>
                   <ArrowRight className="size-3.5 text-[#8C8980] group-hover:text-[#D96B27] transition-colors" />
                 </button>
               ))}
@@ -225,11 +239,16 @@ function AskContent() {
             )}
 
             {thinking && (
-              <div className="flex items-center gap-3 text-xs text-[#706E68] pt-2">
+              <div className="flex items-center gap-3 text-xs text-[#706E68] pt-2 animate-rise">
                 <span className="grid size-7 shrink-0 place-items-center rounded-md bg-[#F3F1EC] border border-[#E5E3DC] text-[#D96B27] text-xs">
                   <Loader2 className="size-3.5 animate-spin" />
                 </span>
-                <span>Saarthi is reasoning with Gemma 3 using your stored context...</span>
+                <div className="flex items-center gap-2">
+                  <span>Gemma 3 reasoning with your stored context</span>
+                  <span className="font-mono text-[10px] bg-[#F3F1EC] border border-[#E5E3DC] px-1.5 py-0.5 rounded text-[#8C8980]">
+                    127.0.0.1:11434 · {thinkingSeconds}s
+                  </span>
+                </div>
               </div>
             )}
 

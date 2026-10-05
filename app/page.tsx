@@ -15,21 +15,17 @@ export default function Landing() {
       {/* Hero Section */}
       <section className="mx-auto grid min-h-[calc(100vh-3.5rem)] max-w-6xl items-center gap-12 px-5 py-16 lg:grid-cols-[1.1fr_1fr]">
         <div>
-          <span className="inline-flex items-center gap-2 rounded-md border border-[#E5E3DC] bg-[#F3F1EC] px-3 py-1 font-mono text-xs text-[#57534E]">
-            <span className="text-[#D96B27]">✦</span> GEMMA 3 · LOCAL INFERENCE · PRIVATE
+          <span className="inline-flex items-center gap-2 rounded-md border border-[#E5E3DC] bg-[#F3F1EC] px-3 py-1 font-mono text-[11px] text-[#57534E] tracking-wider uppercase">
+            <span className="text-[#D96B27]">✦</span> Gemma 3 · Local Inference · Private
           </span>
 
-          <h1 className="mt-6 text-4xl font-extrabold tracking-tight text-[#1F1E1D] sm:text-6xl leading-[1.08]">
-            PRIVATE AI<br />
-            THAT REMEMBERS.
+          <h1 className="mt-6 font-serif text-5xl sm:text-7xl font-normal tracking-tight text-[#1F1E1D] leading-[1.08]">
+            Private AI that <br />
+            <span className="italic font-serif text-[#D96B27]">remembers</span> what matters.
           </h1>
 
-          <p className="mt-4 text-xl font-medium text-[#D96B27]">
-            Meet Saarthi.
-          </p>
-
-          <p className="mt-3 max-w-md text-sm text-[#706E68] leading-relaxed">
-            A personal AI companion that understands what matters to you and helps you decide what to do next. Powered by local Gemma 3 and MongoDB memory.
+          <p className="mt-5 max-w-md text-base text-[#57534E] leading-relaxed font-sans">
+            A personal AI companion that understands your goals, deadlines, and preferences — running 100% locally with Gemma 3 and MongoDB.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
@@ -58,7 +54,7 @@ export default function Landing() {
         <div className="relative">
           <div className="rounded-xl border border-[#E5E3DC] bg-[#FFFFFF] p-6 shadow-sm space-y-4">
             <div className="flex items-center justify-between text-xs pb-3 border-b border-[#E5E3DC]">
-              <span className="font-semibold text-[#1F1E1D] flex items-center gap-1.5">
+              <span className="font-serif text-sm font-medium text-[#1F1E1D] flex items-center gap-1.5">
                 <span className="text-[#D96B27]">✦</span> Saarthi Engine
               </span>
               <span className="font-mono text-[11px] text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded flex items-center gap-1.5">
@@ -118,7 +114,8 @@ export default function Landing() {
       {/* How It Works */}
       <section id="how" className="mx-auto max-w-6xl px-5 py-24 border-t border-[#E5E3DC]">
         <div className="mb-12 text-center">
-          <h2 className="text-2xl font-bold tracking-tight text-[#1F1E1D] sm:text-3xl">
+          <span className="font-mono text-xs uppercase tracking-widest text-[#D96B27] block mb-2">Core Workflow</span>
+          <h2 className="font-serif text-3xl sm:text-4xl font-normal tracking-tight text-[#1F1E1D]">
             How Saarthi Works
           </h2>
           <p className="mt-2 text-sm text-[#706E68]">
@@ -128,9 +125,9 @@ export default function Landing() {
 
         <div className="grid gap-6 md:grid-cols-3">
           <div className="rounded-xl border border-[#E5E3DC] bg-[#FFFFFF] p-7 shadow-sm">
-            <span className="font-mono text-xs font-bold text-[#D96B27]">01</span>
-            <h3 className="mt-4 font-bold text-sm tracking-wider uppercase text-[#1F1E1D]">
-              TALK
+            <span className="font-mono text-xs font-semibold text-[#D96B27]">01</span>
+            <h3 className="mt-4 font-serif text-xl font-medium text-[#1F1E1D]">
+              Talk naturally
             </h3>
             <p className="mt-2 text-xs leading-relaxed text-[#706E68]">
               Tell Saarthi what is happening in your life in natural conversational language.
@@ -138,9 +135,9 @@ export default function Landing() {
           </div>
 
           <div className="rounded-xl border border-[#E5E3DC] bg-[#FFFFFF] p-7 shadow-sm">
-            <span className="font-mono text-xs font-bold text-[#D96B27]">02</span>
-            <h3 className="mt-4 font-bold text-sm tracking-wider uppercase text-[#1F1E1D]">
-              REMEMBER
+            <span className="font-mono text-xs font-semibold text-[#D96B27]">02</span>
+            <h3 className="mt-4 font-serif text-xl font-medium text-[#1F1E1D]">
+              Remember context
             </h3>
             <p className="mt-2 text-xs leading-relaxed text-[#706E68]">
               Gemma identifies useful context worth remembering, and asks for your approval before saving.
@@ -148,9 +145,9 @@ export default function Landing() {
           </div>
 
           <div className="rounded-xl border border-[#E5E3DC] bg-[#FFFFFF] p-7 shadow-sm">
-            <span className="font-mono text-xs font-bold text-[#D96B27]">03</span>
-            <h3 className="mt-4 font-bold text-sm tracking-wider uppercase text-[#1F1E1D]">
-              HELP
+            <span className="font-mono text-xs font-semibold text-[#D96B27]">03</span>
+            <h3 className="mt-4 font-serif text-xl font-medium text-[#1F1E1D]">
+              Reason & prioritize
             </h3>
             <p className="mt-2 text-xs leading-relaxed text-[#706E68]">
               Saarthi uses that context to prioritize your day, plan tasks, and explain its recommendations.
@@ -162,11 +159,12 @@ export default function Landing() {
       {/* Landing Privacy Section */}
       <section className="mx-auto max-w-6xl px-5 pb-24">
         <div className="rounded-xl border border-[#E5E3DC] bg-[#FFFFFF] px-8 py-16 text-center shadow-sm">
-          <h2 className="text-2xl font-bold tracking-tight text-[#1F1E1D] sm:text-3xl">
+          <span className="font-mono text-xs uppercase tracking-widest text-[#D96B27] block mb-2">Privacy First</span>
+          <h2 className="font-serif text-3xl sm:text-4xl font-normal tracking-tight text-[#1F1E1D]">
             Your context belongs to you.
           </h2>
           <p className="mx-auto mt-3 max-w-md text-sm text-[#706E68] leading-relaxed">
-            Saarthi runs Gemma locally through Ollama. Your AI doesn&apos;t have to live on someone else&apos;s server.
+            Saarthi runs Gemma locally through Ollama. Your memories and data stay strictly on your local device.
           </p>
           <Link
             href="/dashboard"

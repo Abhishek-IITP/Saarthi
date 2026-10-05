@@ -56,7 +56,11 @@ export async function generateWithGemma(prompt: string, format?: "json"): Promis
       prompt,
       stream: false,
       options: {
-        temperature: format === "json" ? 0.2 : 0.7,
+        temperature: format === "json" ? 0.2 : 0.6,
+        num_predict: format === "json" ? 350 : 160,
+        num_ctx: 2048,
+        top_k: 40,
+        top_p: 0.9,
       },
     };
 
@@ -70,7 +74,7 @@ export async function generateWithGemma(prompt: string, format?: "json"): Promis
         "Content-Type": "application/json",
       },
       body: JSON.stringify(payload),
-      signal: AbortSignal.timeout(60000),
+      signal: AbortSignal.timeout(90000),
     });
 
     if (!response.ok) {

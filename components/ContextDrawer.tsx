@@ -35,7 +35,7 @@ export function ContextDrawer({
         {type === "goals" && (
           <div>
             <DialogHeader>
-              <DialogTitle className="flex items-center gap-2 text-base font-bold text-[#1F1E1D]">
+              <DialogTitle className="flex items-center gap-2 font-serif text-xl font-normal text-[#1F1E1D]">
                 <Target className="size-4 text-[#D96B27]" />
                 <span>Active Goals ({goals.length})</span>
               </DialogTitle>
@@ -68,7 +68,7 @@ export function ContextDrawer({
         {type === "weaknesses" && (
           <div>
             <DialogHeader>
-              <DialogTitle className="flex items-center gap-2 text-base font-bold text-[#1F1E1D]">
+              <DialogTitle className="flex items-center gap-2 font-serif text-xl font-normal text-[#1F1E1D]">
                 <AlertTriangle className="size-4 text-[#C2410C]" />
                 <span>Identified Weaknesses ({weaknesses.length})</span>
               </DialogTitle>
@@ -100,7 +100,7 @@ export function ContextDrawer({
         {type === "events" && (
           <div>
             <DialogHeader>
-              <DialogTitle className="flex items-center gap-2 text-base font-bold text-[#1F1E1D]">
+              <DialogTitle className="flex items-center gap-2 font-serif text-xl font-normal text-[#1F1E1D]">
                 <Calendar className="size-4 text-[#D96B27]" />
                 <span>Upcoming Deadlines &amp; Events ({events.length})</span>
               </DialogTitle>
@@ -138,7 +138,7 @@ export function ContextDrawer({
         {type === "preferences" && (
           <div>
             <DialogHeader>
-              <DialogTitle className="flex items-center gap-2 text-base font-bold text-[#1F1E1D]">
+              <DialogTitle className="flex items-center gap-2 font-serif text-xl font-normal text-[#1F1E1D]">
                 <Sliders className="size-4 text-[#706E68]" />
                 <span>Preferences &amp; Habits ({preferences.length})</span>
               </DialogTitle>

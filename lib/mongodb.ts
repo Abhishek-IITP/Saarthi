@@ -18,9 +18,16 @@ if (!global.mongooseCache) {
   global.mongooseCache = cached;
 }
 
+let lastFailedAt = 0;
+let lastFailureError = "";
+
 export async function connectDB(): Promise<typeof mongoose> {
   if (cached.conn) {
     return cached.conn;
+  }
+
+  if (Date.now() - lastFailedAt < 30000) {
+    throw new Error(lastFailureError || "MongoDB connection failed recently (cooldown active)");
   }
 
   if (!cached.promise) {
@@ -36,8 +43,11 @@ export async function connectDB(): Promise<typeof mongoose> {
 
   try {
     cached.conn = await cached.promise;
-  } catch (e) {
+    lastFailedAt = 0;
+  } catch (e: any) {
     cached.promise = null;
+    lastFailedAt = Date.now();
+    lastFailureError = e.message || "Failed to connect to MongoDB";
     throw e;
   }
 
@@ -45,15 +55,27 @@ export async function connectDB(): Promise<typeof mongoose> {
 }
 
 export async function checkDBConnection(): Promise<{ connected: boolean; uri: string; error?: string }> {
-  try {
-    const conn = await connectDB();
-    const isConnected = conn.connection.readyState === 1;
-    return { connected: isConnected, uri: MONGODB_URI.replace(/\/\/([^:]+):([^@]+)@/, "//***:***@") };
-  } catch (err: any) {
+  // If connection failed recently, return cached offline status immediately instead of blocking for 2s
+  if (Date.now() - lastFailedAt < 30000) {
     return {
       connected: false,
       uri: MONGODB_URI.replace(/\/\/([^:]+):([^@]+)@/, "//***:***@"),
-      error: err.message || "Failed to connect to MongoDB",
+      error: lastFailureError,
+    };
+  }
+
+  try {
+    const conn = await connectDB();
+    const isConnected = conn.connection.readyState === 1;
+    lastFailedAt = 0;
+    return { connected: isConnected, uri: MONGODB_URI.replace(/\/\/([^:]+):([^@]+)@/, "//***:***@") };
+  } catch (err: any) {
+    lastFailedAt = Date.now();
+    lastFailureError = err.message || "Failed to connect to MongoDB";
+    return {
+      connected: false,
+      uri: MONGODB_URI.replace(/\/\/([^:]+):([^@]+)@/, "//***:***@"),
+      error: lastFailureError,
     };
   }
 }

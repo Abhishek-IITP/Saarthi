@@ -9,9 +9,9 @@ import { apiCheckHealth } from "@/lib/saarthi";
 
 export function Logo() {
   return (
-    <Link href="/dashboard" className="flex items-center gap-2 text-[15px] font-semibold tracking-tight text-[#1F1E1D] group">
-      <span className="text-[#D96B27] text-base transition-transform group-hover:scale-110">✦</span>
-      <span className="font-semibold tracking-tight">Saarthi</span>
+    <Link href="/dashboard" className="flex items-center gap-2 group">
+      <span className="text-[#D96B27] font-serif text-lg transition-transform group-hover:scale-110">✦</span>
+      <span className="font-serif text-xl font-medium tracking-tight text-[#1F1E1D]">Saarthi</span>
       <span className="font-mono text-[10px] uppercase tracking-wider text-[#8C8980] bg-[#F3F1EC] border border-[#E5E3DC] px-1.5 py-0.5 rounded">
         local
       </span>
@@ -62,14 +62,18 @@ export function LocalAIStatus() {
               <span className="relative size-2 rounded-full bg-emerald-600" />
             </>
           ) : (
-            <span className="relative size-2 rounded-full bg-emerald-600" />
+            <span className="relative size-2 rounded-full bg-amber-500" />
           )}
         </span>
         <span className="font-medium text-[#1F1E1D]">
-          {isOllamaOnline ? "Gemma 3" : "Local Engine"}
+          {isOllamaOnline ? "Gemma 3 Active" : "Local AI"}
         </span>
-        <span className="text-[11px] text-[#8C8980] hidden sm:inline font-mono">
-          offline
+        <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded border hidden sm:inline ${
+          isOllamaOnline 
+            ? "text-emerald-800 bg-emerald-50 border-emerald-200" 
+            : "text-amber-800 bg-amber-50 border-amber-200"
+        }`}>
+          {isOllamaOnline ? "online" : "checking"}
         </span>
       </PopoverTrigger>
 

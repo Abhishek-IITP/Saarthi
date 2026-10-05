@@ -66,14 +66,14 @@ Instructions:
    - Stored preferences (e.g. study habits, time of day)
 3. Never invent personal facts or deadlines not in context.
 4. If context is insufficient, explicitly state what is missing.
-5. In your response, give actionable advice.
+5. Keep your advice punchy, direct, and concise (under 90 words, 2-3 bullets). Avoid fluff.
 6. At the very end of your response, output a structured reasoning block wrapped in <reasoning> ... </reasoning> explaining why you prioritized this advice and which memories influenced it.
 
 Example format:
-Your helpful answer here...
+Your helpful answer here (under 90 words)...
 
 <reasoning>
-I prioritized DBMS revision because your exam is on Friday and you noted normalization is difficult. DSA practice can be done later in the evening to match your night study preference.
+I prioritized DBMS revision because your exam is on Friday and you noted normalization is difficult.
 </reasoning>`;
 }
 

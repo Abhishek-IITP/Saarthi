@@ -15,7 +15,7 @@ export function ContextTimeline({ memories }: { memories: Memory[] }) {
     <div className="rounded-xl border border-[#E5E3DC] bg-[#FFFFFF] p-6 shadow-sm">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h3 className="text-sm font-semibold uppercase tracking-wider text-[#1F1E1D] flex items-center gap-2">
+          <h3 className="font-serif text-xl font-normal text-[#1F1E1D] flex items-center gap-2">
             <Clock className="size-4 text-[#D96B27]" />
             <span>Your Journey</span>
           </h3>

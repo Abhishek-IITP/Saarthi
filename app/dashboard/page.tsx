@@ -101,12 +101,12 @@ export default function Dashboard() {
         {/* Dynamic Greeting */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div>
-            <span className="inline-flex items-center gap-2 rounded-md border border-[#E5E3DC] bg-[#FFFFFF] px-2.5 py-1 font-mono text-xs text-[#706E68]">
+            <span className="inline-flex items-center gap-2 rounded-md border border-[#E5E3DC] bg-[#FFFFFF] px-2.5 py-1 font-mono text-[11px] text-[#706E68] tracking-wider uppercase shadow-sm">
               <span className="size-2 rounded-full bg-emerald-600" />
               <span>Gemma 3 · Context Engine Active</span>
             </span>
-            <h1 className="mt-2 text-3xl font-bold tracking-tight text-[#1F1E1D] sm:text-4xl">
-              {greeting()}, Abhishek
+            <h1 className="mt-2 font-serif text-3xl sm:text-5xl font-normal tracking-tight text-[#1F1E1D]">
+              {greeting()}, <span className="italic font-serif text-[#D96B27]">Abhishek</span>
             </h1>
             <p className="mt-1 text-sm text-[#706E68]">
               Here is what matters right now based on your stored memory profile.
@@ -121,7 +121,7 @@ export default function Dashboard() {
               ✦
             </span>
             <div>
-              <p className="text-xs font-semibold text-[#D96B27] uppercase tracking-wider">
+              <p className="font-mono text-[11px] font-semibold text-[#D96B27] uppercase tracking-wider">
                 I noticed something
               </p>
               <p className="mt-0.5 text-xs text-[#44423E] leading-relaxed">
@@ -144,7 +144,7 @@ export default function Dashboard() {
             <div className="flex items-center gap-2.5 min-w-0">
               <span className="text-emerald-700 font-bold text-sm">✦</span>
               <p className="text-xs text-emerald-950 truncate">
-                <strong className="font-semibold text-emerald-900">MEMORY ACTIVE:</strong> {memories.length} personal context memories loaded. Saarthi calibrated your daily focus.
+                <strong className="font-mono text-[11px] font-semibold text-emerald-900 uppercase tracking-wider mr-1">Memory Active:</strong> {memories.length} personal context memories loaded. Saarthi calibrated your daily focus.
               </p>
             </div>
             <button
@@ -162,7 +162,7 @@ export default function Dashboard() {
           <section className="rounded-xl border border-[#E5E3DC] bg-[#FFFFFF] p-6 shadow-sm flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between pb-3 border-b border-[#E5E3DC]">
-                <p className="text-xs font-bold tracking-wider text-[#D96B27] uppercase flex items-center gap-1.5">
+                <p className="font-mono text-xs font-semibold tracking-wider text-[#D96B27] uppercase flex items-center gap-1.5">
                   <span>✦</span> Saarthi&apos;s Take
                 </p>
                 <button
@@ -176,10 +176,10 @@ export default function Dashboard() {
               </div>
 
               <div className="mt-4">
-                <p className="text-lg font-bold text-[#1F1E1D] leading-snug">
+                <p className="font-serif text-xl sm:text-2xl font-normal text-[#1F1E1D] leading-snug">
                   {take?.recommendation || "DBMS revision should be your priority today."}
                 </p>
-                <p className="mt-1 text-xs text-[#706E68]">
+                <p className="mt-1.5 text-xs text-[#706E68] leading-relaxed">
                   {take?.summary || "You have three things competing for your attention today."}
                 </p>
               </div>

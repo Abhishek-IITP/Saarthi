@@ -101,11 +101,11 @@ export default function Memories() {
         {/* Header */}
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
-            <div className="inline-flex items-center gap-2 rounded-md border border-[#E5E3DC] bg-[#FFFFFF] px-2.5 py-1 font-mono text-xs text-[#706E68]">
+            <div className="inline-flex items-center gap-2 rounded-md border border-[#E5E3DC] bg-[#FFFFFF] px-2.5 py-1 font-mono text-[11px] text-[#706E68] tracking-wider uppercase shadow-sm">
               <span className="size-2 rounded-full bg-emerald-600" />
               <span>Persistent Memory Store</span>
             </div>
-            <h1 className="mt-2 text-3xl font-bold tracking-tight text-[#1F1E1D] sm:text-4xl">
+            <h1 className="mt-2 font-serif text-3xl sm:text-5xl font-normal tracking-tight text-[#1F1E1D]">
               What Saarthi Knows
             </h1>
             <p className="mt-1 text-sm text-[#706E68]">
@@ -137,37 +137,37 @@ export default function Memories() {
         {/* Context Summary Compact Stats */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           <div className="rounded-lg border border-[#E5E3DC] bg-[#FFFFFF] p-4 text-center shadow-sm">
-            <span className="text-2xl font-bold font-mono text-[#1F1E1D] block">
+            <span className="text-2xl font-normal font-mono text-[#1F1E1D] block">
               {memories.length}
             </span>
-            <span className="text-xs text-[#706E68] uppercase tracking-wider font-semibold">
+            <span className="text-[11px] text-[#706E68] uppercase tracking-widest font-mono">
               Memories
             </span>
           </div>
 
           <div className="rounded-lg border border-[#E5E3DC] bg-[#FFFFFF] p-4 text-center shadow-sm">
-            <span className="text-2xl font-bold font-mono text-[#D96B27] block">
+            <span className="text-2xl font-normal font-mono text-[#D96B27] block">
               {goalsCount}
             </span>
-            <span className="text-xs text-[#706E68] uppercase tracking-wider font-semibold">
+            <span className="text-[11px] text-[#706E68] uppercase tracking-widest font-mono">
               Goals
             </span>
           </div>
 
           <div className="rounded-lg border border-[#E5E3DC] bg-[#FFFFFF] p-4 text-center shadow-sm">
-            <span className="text-2xl font-bold font-mono text-[#C2410C] block">
+            <span className="text-2xl font-normal font-mono text-[#C2410C] block">
               {weaknessesCount}
             </span>
-            <span className="text-xs text-[#706E68] uppercase tracking-wider font-semibold">
+            <span className="text-[11px] text-[#706E68] uppercase tracking-widest font-mono">
               Weaknesses
             </span>
           </div>
 
           <div className="rounded-lg border border-[#E5E3DC] bg-[#FFFFFF] p-4 text-center shadow-sm">
-            <span className="text-2xl font-bold font-mono text-emerald-700 block">
+            <span className="text-2xl font-normal font-mono text-emerald-700 block">
               {upcomingCount}
             </span>
-            <span className="text-xs text-[#706E68] uppercase tracking-wider font-semibold">
+            <span className="text-[11px] text-[#706E68] uppercase tracking-widest font-mono">
               Upcoming
             </span>
           </div>

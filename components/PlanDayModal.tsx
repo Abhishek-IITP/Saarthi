@@ -43,8 +43,8 @@ export function PlanDayModal({
       <DialogContent className="rounded-xl border border-[#E5E3DC] bg-[#FFFFFF] text-[#1F1E1D] sm:max-w-lg p-6 shadow-lg">
         <DialogHeader>
           <div className="flex items-center justify-between">
-            <DialogTitle className="flex items-center gap-2 text-base font-bold text-[#1F1E1D]">
-              <span className="text-[#D96B27]">✦</span>
+            <DialogTitle className="flex items-center gap-2 font-serif text-xl font-normal text-[#1F1E1D]">
+              <span className="text-[#D96B27] font-serif">✦</span>
               <span>Your Plan for Today</span>
             </DialogTitle>
             <button
